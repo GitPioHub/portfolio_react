@@ -1,0 +1,98 @@
+body {
+  margin: 0;
+  padding: 0;
+  font: 15px/1 Helvetica, Verdana, sans-serif;
+  background:  -webkit-linear-gradient(to left, #4b79a1, #283e51);
+  background: linear-gradient(to left, #4b79a1, #283e51);
+}
+
+
+
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  color: white;
+  display: inline-block;
+  width : 100%;
+}
+
+.App-title {
+  font-size: 1.5em;
+  padding-left: 870px;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.Summary{
+display: inline-block;
+  text-align: center;
+}
+
+
+.container {
+  height : 2000px;
+  width : 500px;
+  margin-top : 0;
+    display: table;
+}
+
+.bodySection{
+  background-color: #222222;
+}
+
+
+.NavList{
+  padding-top : 100px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+.body {
+  background-color: #207D84;
+}
+
+.containerMain {
+  width: 1000px;
+  margin: auto;
+}
+
+h1{
+margin-top : 10px;
+}
+
+MenuSkills {
+  padding-top : 15px;
+}

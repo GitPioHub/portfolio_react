@@ -1,0 +1,7 @@
+.Cv{
+    text-align: center;
+    vertical-align: middle;
+    display: table-cell;
+    padding-left: 200px;
+    padding-top : 15px;
+}
