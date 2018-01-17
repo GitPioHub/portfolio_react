@@ -120,9 +120,7 @@ const Skill = ({match}) => {
             }
             return null;
         }
-
     );
-
     return (
         <div>
             <h3>{match.params.SkillId}</h3>

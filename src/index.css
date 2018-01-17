@@ -6,7 +6,9 @@ body {
   background: linear-gradient(to left, #4b79a1, #283e51);
 }
 
-
+hr{
+  margin: 0px;
+}
 
 
 .App-title {

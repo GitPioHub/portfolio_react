@@ -5,89 +5,70 @@ import './veilleTechnologique.css';
 
 
 export default class VeilleTechnologique extends Component {
+   constructor(props){
+       super(props);
 
+       this.state =  {  URLs: [
+               {id:1, url: 'https://formations.mayenne.cci.fr/net-ypareo/index.php'},
+               {id:2,url: 'https://reacttraining.com/react-router/web/example/basic'},
+               {id:3, url: 'https://www.youtube.com/?hl=fr&gl=FR'}
+           ]}
+   }
+
+    addItem(e) {
+        e.preventDefault();
+        const count = this.state.URLs.length -1;
+        const newItem = this.newItem.value;
+        const newId = count +1;
+
+        this.setState({
+            URLs: [...this.state.URLs, {id: newId, url: newItem}]
+        });
+        this.addForm.reset()
+    }
     render() {
-        const UrlObjet = URLs.map((mappedObject) => {
-                return (
-                    <TableUrl ref="TablezzzzzUrl" key={mappedObject.id} mappedObject={mappedObject}/>
-                )
-            }
-        );
-
+        const {URLs} = this.state;
         return (
             <div>
-                <h1 className="HeaderSkills">Veille technologique</h1>
-                {UrlObjet}
-                <Form/>
+                <header>
+                    <h1>Veille Technologique</h1>
+                    <form className="form-inline" ref={input => this.addForm = input} onSubmit={e =>(this.addItem(e))}>
+                        <div className="form-group">
+                            <label className="sr-only" htmlFor="newItemInput">Ajouter nouvel élément</label>
+                            <input ref={input => this.newItem = input} type="text" placeholder="url" className="form-control" id="newItemInput"/>
+                        </div>
+                        <button type="submit" className="btn btn-primary">Add</button>
+                    </form>
+                </header>
+                <div className="content">
+                    <table className="table table-dark">
+                        <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Item</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {
+                            URLs.map(item => {
+                                return (
+                                    <tr key={item.url}>
+                                        <th scope="row">{item.id}</th>
+                                        <td><a href={item.url}>{item.url}</a></td>
+                                        <td>Button</td>
+                                    </tr>
+                                )
+                            })
+                        }
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        );
+        )
     }
 };
 
-
-class Form extends Component {
-
-    render(){
-        return(
-            <div>
-                <h2>Ajouter un lien</h2>
-                <AddUrlForm  addItem={this.add} />
-            </div>
-        )
-    }
-}
-
-class AddUrlForm extends Component {
-
-     add(url) {
-        URLs.push({id: 4, name: 'article n° 4', url: url});
-        console.log(URLs);
-    }
-     createItem(e) {
-         e.preventDefault();
-
-         let item = this.refs.urlName.value;
-         if(typeof item === 'string' && item.length > 0){
-             this.add(item);
-             this.refs.urlForm.reset();
-
-         }
-    }
-    render(){
-         return(
-             <form className="form-inline" ref="urlForm" onSubmit={this.createItem.bind(this)}>
-                   <div className="form-group">
-                    <label>
-                        Nom de l'article :
-                        <input type="text" id="urlItem" ref="urlName" className="form-control"/>
-
-                    </label>
-                 </div>
-        <button type="submit" className="btn">Ajouter une URL</button>
-        </form>
-         )
-    }
-}
-
-
-class TableUrl extends Component {
-    render() {
-
-        let mappedObject = this.props.mappedObject;
-
-        return(<li className="DescriptionArea" key={`${mappedObject.name}`}>
-                {mappedObject.name} :
-                <a href={`${mappedObject.url}`}>  {mappedObject.url}</a>
-            </li>
-        )
-    }
-}
-
-const URLs = [
-    {id: 1, name: 'Article n°1', url: 'https://formations.mayenne.cci.fr/net-ypareo/index.php'},
-    {id: 2, name: 'article n°2', url: 'https://reacttraining.com/react-router/web/example/basic'},
-    {id: 3, name: 'article n°3', url: 'https://www.youtube.com/?hl=fr&gl=FR'},
-];
 
 
 
